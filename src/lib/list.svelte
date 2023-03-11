@@ -1,30 +1,6 @@
 <script lang="ts">
-	let items = [
-		{
-			task: 'implementa list',
-			mode: 'Normal',
-			estimation: '10.0',
-			actual: '5.0',
-			start: '11:00',
-			end: '11:05'
-		},
-		{
-			task: 'repeat list',
-			mode: 'Easy',
-			estimation: '1.0',
-			actual: '',
-			start: '',
-			end: ''
-		},
-		{
-			task: 'next step',
-			mode: 'Hard',
-			estimation: '120.0',
-			actual: '',
-			start: '',
-			end: ''
-		}
-	];
+	import type { Task } from '../lib/crud';
+	export let items: Task[] = [];
 </script>
 
 <div class="flex flex-wrap justify-around border-b">
@@ -40,12 +16,11 @@
 		<div
 			contenteditable="true"
 			class="basis-48 rounded duration-100 hover:border hover:border-black"
-			on:blur={(e) => console.log(e.target?.innerText)}
 		>
 			{item.task}
 		</div>
-		<div contenteditable="true" class="basis-24">{item.mode}</div>
-		<div contenteditable="true" class="basis-24">{item.estimation}</div>
+		<div contenteditable="true" class="basis-24">{item?.expand?.mode?.mode}</div>
+		<div contenteditable="true" class="basis-24">{item.estimate}</div>
 		<div contenteditable="true" class="basis-24">{item.actual}</div>
 		<div contenteditable="true" class="basis-24">{item.start}</div>
 		<div contenteditable="true" class="basis-24">{item.end}</div>

@@ -1,0 +1,9 @@
+GET http://127.0.0.1:8090/api/collections/tasks/records?expand=mode,project
+
+###
+POST http://127.0.0.1:8090/api/collections/tasks/records
+content-type: application/json
+
+{
+    "task": "post"
+}

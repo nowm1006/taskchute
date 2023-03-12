@@ -1,13 +1,6 @@
 <script lang="ts">
-	import type { Task } from '../lib/crud';
-	export let items: Task[] = [];
-
-	const list2str = (list: any[]) => {
-		return list.reduce((p, c, i) => {
-			if (i == 0) return c.name;
-			return p + ',' + c.name;
-		}, '');
-	};
+	import type { Task } from './+page.server'
+	export let items: Task[] = []
 </script>
 
 <div class="flex flex-wrap justify-around border-b font-bold">
@@ -18,12 +11,12 @@
 	<div class="basis-24">Start</div>
 	<div class="basis-24">End</div>
 </div>
-{#each items as item (item.task)}
+{#each items as item (item.id)}
+	{@debug item}
 	<div class="mb-1 flex h-16 flex-wrap items-center justify-around border-b">
 		<div class="basis-48">
 			<div class="text-sm text-gray-500">
-				{@debug item}
-				{list2str(item.expand?.project)}
+				{item.expand.project?.name}
 			</div>
 			<div
 				contenteditable="true"

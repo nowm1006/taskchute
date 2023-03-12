@@ -1,18 +1,13 @@
 <script lang="ts">
-	import type { ActionData, PageData } from './$types';
+	import type { ActionData, PageData } from './$types'
 
-	import List from '$lib/list.svelte';
-	import Add from '../lib/add.svelte';
+	import List from './list.svelte'
+	import Add from './add.svelte'
 
-	export let data: PageData;
-	export let form: ActionData;
+	export let data: PageData
 </script>
 
 <div class="container p-3">
 	<Add />
 	<List items={data.items} />
 </div>
-
-{#if form?.success}
-	<p>added task</p>
-{/if}
